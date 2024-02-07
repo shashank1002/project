@@ -1,9 +1,8 @@
-from flask import Blueprint, request
+from app import app
+from flask import request
 from controller import update_data, get_id, get_student, delete_data, get_json
 
-blueprint_update = Blueprint('blueprint_update', __name__)
-
-@blueprint_update.route('/student/<student_id>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/student/<student_id>', methods=['GET', 'PUT', 'DELETE'])
 def manage_student(student_id):
     student = get_student(student_id)
     if request.method == 'GET':

@@ -1,9 +1,8 @@
-from flask import Blueprint, request
+from app import app
+from flask import request
 from controller import create, require_data, get_json
 
-blueprint_get = Blueprint('blueprint_get', __name__)
-
-@blueprint_get.route('/student', methods=['POST', 'GET'])
+@app.route('/student', methods=['POST', 'GET'])
 def handle_student():
     if request.method == 'POST':
         if request.is_json:
